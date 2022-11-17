@@ -6,8 +6,8 @@ public class Lector implements Runnable {
 
     AtomicInteger id;
 
-    public Lector (){
-        this.id = new AtomicInteger(0);
+    public Lector (AtomicInteger id){
+        this.id = id;
     }
 
     public void leer () {
