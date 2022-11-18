@@ -4,9 +4,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Escritor implements  Runnable{
 
-    AtomicInteger id;
+    int id;
 
-    public Escritor(AtomicInteger id) {
+    public Escritor(int id) {
         this.id = id;
     }
 

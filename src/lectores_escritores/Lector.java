@@ -4,9 +4,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Lector implements Runnable {
 
-    AtomicInteger id;
+    int id;
 
-    public Lector (AtomicInteger id){
+    public Lector (int id){
         this.id = id;
     }
 

@@ -11,9 +11,9 @@ public class LectoresEscritoresMain {
 
         for (int i = 0; i < arrThread.length; i++) {
             if (i <= 4){
-                new Thread(new Lector(crearIdLector));
+                new Thread(new Lector(crearIdLector.getAndIncrement()));
             }else{
-                new Thread(new Escritor(crearIdEscritor));
+                new Thread(new Escritor(crearIdEscritor.getAndIncrement()));
             }
         }
 
