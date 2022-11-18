@@ -5,17 +5,22 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Escritor implements  Runnable{
 
     int id;
+    GestorLectoresEscritores g;
 
-    public Escritor(int id) {
+    public Escritor(int id, GestorLectoresEscritores gestor) {
         this.id = id;
-    }
-
-    public void escribir() {
-
+        g = gestor;
     }
 
     @Override
     public void run() {
-
+        while(true){
+            try {
+                g.openE(id);
+                g.closeE(id);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
