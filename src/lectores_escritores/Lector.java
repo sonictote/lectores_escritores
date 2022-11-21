@@ -1,22 +1,21 @@
 package lectores_escritores;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Lector implements Runnable {
 
     int id;
-    GestorLectoresEscritores g;
+    Documento doc;
 
-    public Lector(int id, GestorLectoresEscritores gestor) {
+    public Lector(int id,Documento doc) {
         this.id = id;
-        g = gestor;
+        this.doc = doc;
     }
 
     @Override
     public void run() {
         while (true) {
             try {
-                g.openL(id);
+                doc.openL(id);
+                doc.closeL(id);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
