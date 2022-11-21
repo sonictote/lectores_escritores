@@ -17,7 +17,6 @@ public class Escritor implements  Runnable{
         while(true){
             try {
                 g.openE(id);
-                g.closeE(id);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

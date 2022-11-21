@@ -17,7 +17,6 @@ public class Lector implements Runnable {
         while (true) {
             try {
                 g.openL(id);
-                g.closeL(id);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

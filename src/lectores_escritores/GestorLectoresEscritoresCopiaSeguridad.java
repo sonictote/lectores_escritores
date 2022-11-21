@@ -1,6 +1,6 @@
 package lectores_escritores;
 
-public class GestorLectoresEscritores {
+public class GestorLectoresEscritoresCopiaSeguridad {
     private int numLectores = 0;
     private boolean hayEscritor = false;
 
@@ -10,14 +10,15 @@ public class GestorLectoresEscritores {
         }
         numLectores++;
         System.out.println("Lector " + idLectores + " esta leyendo el fihero");
-        Thread.sleep(1000);
+    }
+
+    public synchronized void closeL(int idLectores) {
         System.out.println("Lector " + idLectores + " deja de leer el fiechero");
         numLectores--;
         if (numLectores == 0) {
-            notifyAll();
+            notify();
         }
     }
-
 
     public synchronized void openE(int idEscritores) throws InterruptedException {
         while (hayEscritor || numLectores > 0) {
@@ -25,8 +26,11 @@ public class GestorLectoresEscritores {
         }
         hayEscritor = true;
         System.out.println("Escritor " + idEscritores + " esta escribiendo el fichero");
-        Thread.sleep(1000);
+    }
+
+    public synchronized void closeE(int idEscritores) {
         System.out.println("Lector " + idEscritores + " deja de leer el fichero");
         notifyAll();
+
     }
 }
