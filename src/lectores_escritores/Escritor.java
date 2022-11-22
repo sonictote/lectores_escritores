@@ -2,12 +2,14 @@ package lectores_escritores;
 
 public class Escritor implements  Runnable{
 
+    static int contId = -1;
     int id;
     Documento doc;
 
-    public Escritor(int id, Documento doc) {
-        this.id = id;;
+    public Escritor(Documento doc) {
+        this.id = contId + 1 ;
         this.doc = doc;
+        contId++;
     }
 
     @Override
